@@ -5,13 +5,13 @@ module.exports = {
   entry: './__tests__/index.ts',
   output: {
     path: path.resolve(__dirname, '../dist_test'),
-    filename: 'test_bundle.js',
+    filename: 'test_bundle.js'
   },
   mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
-      template: './__tests__/index.html', // Points to the test-specific index.html
-    }),
+      template: './__tests__/index.html',  // Points to the test-specific index.html
+    })
   ],
   devServer: {
     static: {
