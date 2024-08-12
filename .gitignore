@@ -14,15 +14,15 @@
 
 coverage
 coverage/**
-/coverage
+coverage
 dist_test
 playwright-report
 playwright-report
-coverage/lcov-report/
-dist_test/
-playwright-report/
-playwright-report/
-/package-lock.json
+coverage/lcov-report
+dist_test
+playwright-report
+playwright-report
+package-lock.json
 
 
 
