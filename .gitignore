@@ -13,13 +13,11 @@
 !.phpcs.xml.dist
 
 coverage
-coverage/**
+dist
+dist_test
+playwright-report
 coverage
-dist_test
-playwright-report
-playwright-report
-coverage/lcov-report
-dist_test
+
 playwright-report
 playwright-report
 package-lock.json
@@ -30,8 +28,8 @@ package-lock.json
 ~*
 
 # ignore node/grunt dependency directories
-/node_modules
-node_modules/
+
+
 node_modules
 
 # Ignore build directories.
