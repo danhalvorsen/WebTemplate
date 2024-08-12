@@ -1,4 +1,31 @@
 
+
+# --------------------------------------------------------
+# BEGIN Explictly Allowed Files (i.e. do NOT ignore these)
+# --------------------------------------------------------
+
+# track these files, if they exist
+!.editorconfig
+!.env.example
+!.git-blame-ignore-revs
+!.gitignore
+!.nvmrc
+!.phpcs.xml.dist
+
+coverage
+coverage/**
+/coverage
+dist_test
+playwright-report
+playwright-report
+coverage/lcov-report/
+dist_test/
+playwright-report/
+playwright-report/
+/package-lock.json
+
+
+
 .*
 ~*
 
@@ -56,27 +83,3 @@ Thumbs.db
 *.der
 *.key
 *.pem
-
-# --------------------------------------------------------
-# BEGIN Explictly Allowed Files (i.e. do NOT ignore these)
-# --------------------------------------------------------
-
-# track these files, if they exist
-!.editorconfig
-!.env.example
-!.git-blame-ignore-revs
-!.gitignore
-!.nvmrc
-!.phpcs.xml.dist
-
-coverage
-coverage/**
-/coverage
-dist_test
-playwright-report
-playwright-report
-coverage/lcov-report/
-dist_test/
-playwright-report/
-playwright-report/
-/package-lock.json
