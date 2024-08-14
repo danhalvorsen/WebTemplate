@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Mocha Tests</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="node_modules/mocha/mocha.css"> -->
+    </head>
+    <html>
+        <body>
+            <h1>TEST</h1>
+            <script type="module">
+      import { mocha, sessionFinished, sessionFailed } from '@web/test-runner-mocha';
+      import { chai, expect } from '@web/test-runner-chai';
+      try {
+        // setup mocha
+        mocha.setup({ ui: 'bdd' });
+
+        // write your tests inline
+        describe('HTML tests', () => {
+          it('works', () => {
+            expect('foo').to.equal('foo');
+          });
+        });
+
+        // or import your test file
+        await import('./my-test.js');
+
+        // run the tests, and notify the test runner after finishing
+        mocha.run(() => {
+          sessionFinished();
+        });
+      } catch (error) {
+        console.error(error);
+        // notify the test runner about errors
+        sessionFailed(error);
+      }
+            </script>
+        </body>
+    </html>
+</html>

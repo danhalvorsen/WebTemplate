@@ -6,6 +6,6 @@ module.exports = {
   reporter: 'spec',
   globals: {
     window: new JSDOM().window,
-    document: new JSDOM().window.document
-  }
+    document: new JSDOM().window.document,
+  },
 };
