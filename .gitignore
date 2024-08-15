@@ -1,17 +1,5 @@
 
 
-# --------------------------------------------------------
-# BEGIN Explictly Allowed Files (i.e. do NOT ignore these)
-# --------------------------------------------------------
-
-# track these files, if they exist
-!.editorconfig
-!.env.example
-!.git-blame-ignore-revs
-!.gitignore
-!.nvmrc
-!.phpcs.xml.dist
-
 coverage
 dist
 dist_test
@@ -22,7 +10,7 @@ playwright-report
 playwright-report
 package-lock.json
 
-
+node_modules/
 
 .*
 ~*
@@ -81,3 +69,4 @@ Thumbs.db
 *.der
 *.key
 *.pem
+node_modules
