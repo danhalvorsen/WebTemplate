@@ -8,10 +8,12 @@
     </head>
     <html>
         <body>
+            <<script src="./node_modules/chai/chai.js"></script>
             <h1>TEST</h1>
             <script type="module">
       import { mocha, sessionFinished, sessionFailed } from '@web/test-runner-mocha';
-      import { chai, expect } from '@web/test-runner-chai';
+      
+      import {  expect } from '@web/test-runner-chai';
       try {
         // setup mocha
         mocha.setup({ ui: 'bdd' });

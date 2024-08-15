@@ -1,3 +1,3 @@
-import { greet } from './greet';
+import { add } from './calculator';
 
-console.log(greet('World'));
+console.log(add(2, 4));
