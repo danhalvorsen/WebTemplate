@@ -1,1 +1,0 @@
-    "test": "webpack --config __tests__/webpack.test.config.js && jest && playwright test && mocha __tests__/mocha/**/*.ts",

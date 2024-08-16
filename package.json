@@ -4,11 +4,10 @@
   "main": "jest.config.js",
   "type": "module",
   "scripts": {
-    "start": "webpack serve --config webpack.config.js --mode development",
+    "start": "webpack serve --config webpack.config.mjs --mode development",
     "build": "webpack --config webpack.config.mjs --mode production",
-    "test": "webpack --config __tests__/webpack.test.config.js",
-    "testx": "web-test-runner dist/**/*.test.js --node-resolve",
-    "testxb": "tsc && tsc -p test-tsconfig.json"
+    "test": "webpack --config __tests__/webpack.test.config.mjs",
+    "testx": "web-test-runner dist/**/*.test.js --node-resolve"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +26,7 @@
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
     "chai": "^5.1.1",
+    "copy-webpack-plugin": "^12.0.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",

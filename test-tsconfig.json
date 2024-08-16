@@ -9,6 +9,6 @@
     "skipLibCheck": true,
     "sourceMap": true
   },
-  "include": ["./__tests__/mocha/**/*test.ts"],
+  "include": ["./__tests__/mocha/**/*test.ts", "./src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
