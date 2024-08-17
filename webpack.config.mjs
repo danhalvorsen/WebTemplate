@@ -1,46 +1,44 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-
-// Get __dirname for ES Module context
 import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  entry: './src/index.ts', // Entry point to your TypeScript file
+  mode: 'development',
+  entry: {
+    main: './src/index.ts',
+    tests: './src/__tests__/web.component.test.ts',
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true, // Clean the output directory before each build
+    clean: true,
   },
   resolve: {
-    extensions: ['.ts', '.js'], // Resolve TypeScript and JavaScript files
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.ts$/, // Use ts-loader for TypeScript files
+        test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.mjs$/,
+        type: 'javascript/auto', // Properly handle .mjs files
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // Point to your HTML template
+      template: './src/index.html',
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: 'src/styles.css', to: 'styles.css' }], // Copy styles.css to the output directory
+      patterns: [{ from: 'src/styles.css', to: 'styles.css' }],
     }),
   ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'), // Serve files from the "dist" directory
-    },
-    compress: true,
-    port: 8080,
-    open: true, // Automatically open the browser
-  },
-  mode: 'development', // Set mode to development
 };

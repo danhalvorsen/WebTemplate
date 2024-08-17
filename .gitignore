@@ -12,3 +12,5 @@ node_modules/
 /.vs
 /coverage/lcov-report
 /dist
+/chrome
+

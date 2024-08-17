@@ -10,10 +10,9 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "jsx": "react",
     "resolveJsonModule": true,
-    "types": ["jest", "node", "chai"]
+    "types": ["node", "chai", "expect"]
   },
-  "include": ["src/**/*.ts", "src/__tests__/**/*.ts"],
+  "include": ["src/**/*.ts", "src/__tests__/**/*.ts", "src/types/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
