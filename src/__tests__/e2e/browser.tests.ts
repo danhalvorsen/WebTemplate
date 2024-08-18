@@ -1,7 +1,4 @@
-import puppeteer, { Browser, Page } from 'puppeteer';
-import { fixture, html } from '@open-wc/testing';
-import { expect } from 'chai';
-
+import { test, expect, type Page, type Browser } from '@playwright/test';
 describe('My Web Component', () => {
   let browser: Browser;
   let page: Page;

@@ -13,4 +13,11 @@ node_modules/
 /coverage/lcov-report
 /dist
 /chrome
-
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

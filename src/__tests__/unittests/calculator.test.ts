@@ -2,7 +2,7 @@
 
 import { fixture, html } from '@open-wc/testing';
 import { expect } from 'chai';
-import { Calculator } from '../calculator';
+import { Calculator } from '../../calculator';
 describe('Calculator Tests', () => {
   const calculator = new Calculator();
 

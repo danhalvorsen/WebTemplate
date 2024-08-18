@@ -1,37 +1,98 @@
-// my-component.js
+class PopupInfo extends HTMLElement {
+  private info: string = '';
 
- class MyComponent extends HTMLElement {
+  public get GetInfo(): string {
+    return this.info;
+  }
+  public set SetInfo(v: string) {
+    this.info = v;
+  }
+
   constructor() {
+    // Always call super first in constructor
     super();
+    this.SetInfo = 'Hello, World!';
+  }
 
-    // Attach a shadow DOM to the component
-    this.attachShadow({ mode: 'open' });
+  connectedCallback() {
+    console.log(
+      '************************connected*******************************',
+    );
 
-    // Create elements
-    const wrapper = document.createElement('div');
-    const message = document.createElement('p');
-    message.textContent = 'Hello, World!';
+    // Create a shadow root
+    const shadow = this.attachShadow({ mode: 'open' });
 
-    // Apply styles
+    // Create spans
+    const wrapper = document.createElement('span');
+    wrapper.setAttribute('class', 'wrapper');
+
+    const icon = document.createElement('span');
+    icon.setAttribute('class', 'icon');
+    icon.setAttribute('tabindex', '0');
+
+    const info = document.createElement('span');
+    info.setAttribute('class', 'info');
+
+    // Take attribute content and put it inside the info span
+    const text = this.getAttribute('data-text');
+    info.textContent = text;
+
+    // Insert icon
+    let imgUrl;
+    if (this.hasAttribute('img')) {
+      imgUrl = this.getAttribute('img');
+    } else {
+      imgUrl = 'img/default.png';
+    }
+
+    const img = document.createElement('img');
+    if (!imgUrl) {
+      Error('No image provided');
+    } else {
+      img.src = imgUrl;
+      icon.appendChild(img);
+    }
+
+    // Create some CSS to apply to the shadow dom
     const style = document.createElement('style');
-    style.textContent = `
-        div {
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          background-color: #f9f9f9;
-        }
-        p {
-          font-size: 16px;
-          color: #333;
-        }
-      `;
+    console.log(style.isConnected);
 
-    // Append elements to the shadow DOM
-    wrapper.appendChild(message);
-    this.shadowRoot?.append(style, wrapper);
+    style.textContent = `
+      .wrapper {
+        position: relative;
+      }
+
+      .info {
+        font-size: 0.8rem;
+        width: 200px;
+        display: inline-block;
+        border: 1px solid black;
+        padding: 10px;
+        background: white;
+        border-radius: 10px;
+        opacity: 0;
+        transition: 0.6s all;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        z-index: 3;
+      }
+
+      img {
+        width: 1.2rem;
+      }
+
+      .icon:hover + .info, .icon:focus + .info {
+        opacity: 1;
+      }
+    `;
+
+    // Attach the created elements to the shadow dom
+    shadow.appendChild(style);
+    console.log(style.isConnected);
+    shadow.appendChild(wrapper);
+    wrapper.appendChild(icon);
+    wrapper.appendChild(info);
   }
 }
-
-// Define the custom element
-customElements.define('my-component', MyComponent);
+customElements.define('popup-info', PopupInfo);

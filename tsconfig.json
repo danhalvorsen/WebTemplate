@@ -11,8 +11,8 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "types": ["node", "chai", "expect"]
+    "types": ["node", "chai", "mocha", "playwright"]
   },
-  "include": ["src/**/*.ts", "src/__tests__/**/*.ts", "src/types/**/*.d.ts"],
+  "include": ["src/**/*.ts", "src/__tests__/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
