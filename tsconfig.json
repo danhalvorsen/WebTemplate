@@ -11,8 +11,13 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "resolveJsonModule": true,
+
     "types": ["node", "chai", "mocha", "playwright"]
   },
-  "include": ["src/**/*.ts", "src/__tests__/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/__tests__/**/*.ts",
+    "web-dev-server-custom-esbuild.config.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

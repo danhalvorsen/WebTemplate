@@ -6,7 +6,9 @@
     "build": "esbuild src/index.ts --bundle --outfile=dist/bundle.js --minify --sourcemap",
     "start": "esbuild src/index.ts --bundle --outfile=dist/bundle.js --minify --sourcemap --servedir=dist --watch",
     "test": "web-test-runner --config web-test-runner.config.mjs --coverage --node-resolve --watch",
-    "web": "esbuild && web-test-runner"
+    "web": "esbuild && web-test-runner",
+    "build-plugin-in": "npx tsc web-dev-server-custom-esbuild.config.ts --outDir .",
+    "dserver": "npm web-dev-server --config web-dev-server-custom-esbuild.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "@types/mocha": "^10.0.7",
     "@types/node": "^22.4.0",
     "@web/dev-server": "^0.4.6",
+    "@web/dev-server-core": "^0.7.2",
     "@web/dev-server-esbuild": "^1.0.2",
     "@web/test-runner": "^0.18.3",
     "@web/test-runner-mocha": "^0.9.0",
