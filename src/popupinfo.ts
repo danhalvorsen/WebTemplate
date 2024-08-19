@@ -1,4 +1,4 @@
-class PopupInfo extends HTMLElement {
+export class PopupInfo extends HTMLElement {
   private info: string = '';
 
   public get GetInfo(): string {

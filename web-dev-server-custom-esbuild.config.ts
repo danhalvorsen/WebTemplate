@@ -1,41 +1,27 @@
 import { esbuildPlugin } from '@web/dev-server-esbuild';
-import { Plugin } from '@web/dev-server-core';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { fileURLToPath } from 'url';
 
-// Define the type for EsbuildPluginArgs manually
-interface EsbuildPluginArgs {
-  jsx?: boolean;
-  target?: string;
-  tsconfig?: string;
-  minify?: boolean;
-  define?: Record<string, string>;
-  entryPoints?: string[];
-}
+// Convert import.meta.url to a file path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = join(__filename, '..');
 
-function myEsbuildPluginWithHtml(options: EsbuildPluginArgs): Plugin {
+function myEsbuildPluginWithHtml(options) {
   const esbuild = esbuildPlugin(options);
-
   return {
     name: 'my-esbuild-plugin-with-html',
-
-    // Hook to serve the initial HTML file
     serve(context) {
       if (context.path === '/' || context.path === '/index.html') {
-        // Path to your HTML file
         const htmlPath = join(process.cwd(), 'src', 'my-custom.html');
         context.body = readFileSync(htmlPath, 'utf8');
       } else if (context.path === '/another-page.html') {
-        // Path to another HTML file
         const htmlPath = join(process.cwd(), 'src', 'another-page.html');
         context.body = readFileSync(htmlPath, 'utf8');
       } else {
-        // Fallback to original esbuild plugin's serve method
         return esbuild.serve?.(context);
       }
     },
-
-    // Hook to process other files normally with esbuild
     transform(context) {
       return esbuild.transform?.(context);
     },
@@ -44,12 +30,12 @@ function myEsbuildPluginWithHtml(options: EsbuildPluginArgs): Plugin {
 
 export default {
   port: 8000,
-  open: true, // Automatically open the browser
-  rootDir: './src', // Set the root directory
+  open: true,
+  rootDir: join(__dirname, '../src'), // Use ES module-friendly path resolution
   plugins: [
     myEsbuildPluginWithHtml({
-      jsx: true, // Enable JSX transformation (optional)
-      target: 'es2020', // Set the target ECMAScript version
+      jsx: true,
+      target: 'es2020',
     }),
   ],
 };

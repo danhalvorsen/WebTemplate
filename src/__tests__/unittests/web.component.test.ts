@@ -1,4 +1,5 @@
 import { fixture, html } from '@open-wc/testing';
+import { PopupInfo } from '../../popupinfo.js';
 import { expect } from 'chai';
 
 describe('My Web Component', () => {
@@ -12,5 +13,5 @@ describe('My Web Component', () => {
     expect(element).to.not.be.null;
   });
 
-  it('')
+  it('');
 });

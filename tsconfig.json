@@ -1,23 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "outDir": "./dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "target": "ES2020", // Target modern JavaScript
+    "module": "NodeNext", // Use NodeNext for module resolution
+    "moduleResolution": "NodeNext", // Ensure compatibility with ESM/CJS
+    "outDir": "./dist", // Output directory for compiled files
+    "strict": true, // Enable strict type-checking options
+    "esModuleInterop": true, // Compatibility with CommonJS modules
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-
-    "types": ["node", "chai", "mocha", "playwright"]
+    "skipLibCheck": true // Skip type checking of declaration files
   },
-  "include": [
-    "src/**/*.ts",
-    "src/__tests__/**/*.ts",
-    "web-dev-server-custom-esbuild.config.ts"
-  ],
-  "exclude": ["node_modules", "dist"]
+  "include": ["./src/**/*", "web-dev-server-custom-esbuild.config.ts"],
+  "exclude": ["node_modules"]
 }
